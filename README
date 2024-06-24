@@ -1,0 +1,47 @@
+# Automated Server Provisioning with Ansible
+Project Overview
+
+This project demonstrates automated server provisioning using Ansible. It sets up a web server and a database server on AWS EC2 instances, managed through a Vagrant VM for local development.
+
+Goal: Create an Ansible playbook that provisions and configures a web server environment from scratch, including web server, database server, and application server setup, along with security configurations.
+
+Technologies: Ansible, AWS EC2, Apache/Nginx, MySQL, Linux
+
+## Project Structure
+
+- `ansible.cfg`: Configuration file for Ansible.
+- `inventory/hosts.ini`: Inventory file with server details.
+- `playbooks/site.yml`: Main playbook to run all tasks.
+- `playbooks/roles/`: Directory containing Ansible roles.
+  - `common/`: Common tasks for all servers.
+  - `webserver/`: Tasks and templates for setting up the web server.
+  - `dbserver/`: Tasks for setting up the database server.
+- `Vagrantfile`: Vagrant configuration file for local VM setup.
+
+## Setup and Usage
+
+1. Clone the repository:
+    ```sh
+    git clone https://github.com/Vaidehi2510/Automated-Server-Provisioning-with-Ansible
+    cd Automated-Server-Provisioning-with-Ansible
+    ```
+
+2. Update the `inventory/hosts.ini` file with your AWS EC2 instance details.
+
+3. Run the Vagrant VM:
+    ```sh
+    vagrant up
+    ```
+
+4. Execute the Ansible playbook:
+    ```sh
+    ansible-playbook -i inventory/hosts.ini playbooks/site.yml
+    ```
+
+## Ansible Playbooks
+
+- `site.yml`: Main playbook that includes common, webserver, and dbserver roles.
+- `roles/common/tasks/main.yml`: Ensures common packages are installed and configures the admin user.
+- `roles/webserver/tasks/main.yml`: Installs Nginx
+- `roles/dbserver/tasks/main.yml`: Placeholder for database server tasks.
+

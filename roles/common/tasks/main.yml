@@ -1,0 +1,19 @@
+---
+- name: Ensure common packages are installed
+  yum:
+    name:
+      - vim
+      - curl
+      - git
+    state: present
+
+- name: Create admin user
+  group:
+    name: wheel
+    state: present
+  user:
+    name: admin
+    state: present
+    groups: wheel
+    
+
